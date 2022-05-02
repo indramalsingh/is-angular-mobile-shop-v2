@@ -1,0 +1,17 @@
+<h2 class="center">Products</h2>
+<div class="products" *ngFor="let product of products; index as i ">
+	<h3><a [title]="product.name + ' detail'" [routerLink]="['/products', product.id]"> {{product.name}} </a></h3>
+	<p *ngIf="product.description">
+		<strong>Description: </strong> {{ product.description }}
+	</p>
+	<p><strong>Price:  {{ product.price | currency}} </strong></p>
+
+	<ng-template [ngIf]="product.qty > 0">
+		<div class="product-share">
+			<button (click)="share()">Share</button>
+		</div>
+	</ng-template>
+
+	<app-product-alerts [product]="product" (notify)="onNotify()" (onInStockNotify)="onInStockNotify()">
+	</app-product-alerts>
+</div>

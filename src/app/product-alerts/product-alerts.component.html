@@ -1,0 +1,17 @@
+<ng-template [ngIf]="product.price > 700">
+	<button (click)="notify.emit()">Notify me when on Sale</button>
+</ng-template>
+
+<ng-template [ngIf]="product.qty == 0">
+	<button [disabled]="true" style="background-color:#FF0000">
+    Out of Stock
+  </button>
+</ng-template>
+
+<ng-template [ngIf]="product.qty == 0">
+
+	<button  style="background-color:orange;margin: auto 5px;" (click)="onInStockNotify.emit()">
+    Notify me when it comes in stock
+  </button>
+
+</ng-template>

@@ -1,0 +1,109 @@
+<div class="cart">
+  <h3 class="center">Shopping Cart</h3>
+  <p>
+    <a routerLink="/shipping">Shipping Prices</a>
+  </p>
+
+  <div class="cart-item" *ngFor="let item of items">
+    <span>{{ item.name }}</span>
+    <span>{{ item.price | currency }}</span>
+  </div>
+
+  <form [formGroup]="checkoutForm" (ngSubmit)="onSubmit()">
+    <div>
+      <label for="firstName">
+        First Name
+      </label>
+      <input
+        id="firstName"
+        class="full"
+        type="text"
+        formControlName="firstName"
+      />
+    </div>
+    <div>
+      <label for="lastName">
+        Last Name
+      </label>
+      <input
+        id="lastName"
+        class="full"
+        type="text"
+        formControlName="lastName"
+      />
+    </div>
+    <div>
+      <label for="mobileNumber">
+        Mobile Number
+      </label>
+      <input
+        id="mobileNumber"
+        class="full"
+        type="text"
+        formControlName="mobileNumber"
+      />
+    </div>
+
+    <div>
+      <label for="address">
+        Address
+      </label>
+      <textarea
+        id="address"
+        class="full"
+        formControlName="address"
+        rows="4"
+        cols="50"
+      >
+      </textarea>
+    </div>
+    <div class="center">
+      <button class="button" type="submit">Purchase</button>
+    </div>
+  </form>
+
+  <!-- <ng-template [ngIf]="items !=0">
+		<div class="cart-item">
+			<span> <strong>	<a routerLink="/shipping">Shipping Prices</a> </strong> </span>
+			<span>
+      <button class="btn btn-primary" (click)="clearCart()">
+        Clear Cart
+      </button>
+    </span>
+		</div>
+
+		<div class="cart-item" *ngFor="let item of items">
+			<span>{{ item.name }}</span>
+			<span>{{ item.price | currency }}</span>
+		</div>
+
+		<form [formGroup]="checkoutForm" (ngSubmit)="onSubmit()">
+			<div>
+				<label for="name">
+      Name
+    </label>
+				<input id="name" type="text" formControlName="name">
+  </div>
+
+				<div>
+					<label for="address">
+      Address
+    </label>
+					<input id="address" type="text" formControlName="address">
+  </div>
+
+					<button class="button" type="submit">Purchase</button>
+
+		</form>
+	</ng-template>
+
+	<ng-template [ngIf]="items ==0">
+		<div class="cart-item">
+			<span>
+		 <strong>Your cart is empty. </strong> </span>
+			<span>
+		<button class="btn btn-primary" routerLink="">Shop Now</button>
+		</span>
+		</div>
+	</ng-template> -->
+</div>
